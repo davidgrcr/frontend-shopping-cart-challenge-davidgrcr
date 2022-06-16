@@ -1,12 +1,21 @@
 import Item from "../../domain/item";
 import useCHeckoutStore from "../../store/store";
+import QuantityModifier from "../ui/QuantityModifier";
 
 function ProductRow(props: { product: Item }) {
-  const { name = "", unitPrice = 0, price = 0, reference = "", image = "", quantity = 0 } = props.product;  
-  const increment = useCHeckoutStore(state => state.increment);  
-  const decrement = useCHeckoutStore(state => state.decrement);  
-  const numberOfItems = useCHeckoutStore(state => state.numberOfItems);
-  
+  const { name = "", unitPrice = 0, price = 0, reference = "", image = "", quantity = 0 } = props.product;
+  const increment = useCHeckoutStore((state) => state.increment);
+  const decrement = useCHeckoutStore((state) => state.decrement);
+  const numberOfItems = useCHeckoutStore((state) => state.numberOfItems);
+
+  const handleOnIncrement = (code: string) => () => {
+    increment(code);
+  };
+
+  const handleOnDecrement = (code: string) => () => {
+    decrement(code);
+  };
+
   return (
     <li className="product row">
       <div className="col-product">
@@ -18,21 +27,11 @@ function ProductRow(props: { product: Item }) {
           </div>
         </figure>
       </div>
-      <div className="col-quantity">
-        <button onClick={() => {
-            decrement(props.product.code);
-          }}
-          className="count">-</button>
-        <input type="text" className="product-quantity" value={quantity} />        
-        <button
-          onClick={() => {
-            increment(props.product.code);
-          }}
-          className="count"
-        >
-          +
-        </button>
-      </div>
+      <QuantityModifier
+        onDecrement={handleOnDecrement(props.product.code)}
+        onIncrement={handleOnIncrement(props.product.code)}
+        quantity={quantity}
+      />
       <div className="col-price">
         <span className="product-price">{unitPrice}</span>
         <span className="product-currency currency">€</span>

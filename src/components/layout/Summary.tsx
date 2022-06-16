@@ -1,5 +1,6 @@
 import Item from "../../domain/item";
 import useCHeckoutStore from "../../store/store";
+import Button from "../ui/Button";
 
 export default function Summary(props: { products: Item[] }) {
   const numberOfItems = useCHeckoutStore((state) => state.numberOfItems);
@@ -40,7 +41,7 @@ export default function Summary(props: { products: Item[] }) {
             <span className="summary-total-price">{checkout.total()}€</span>
           </li>
         </ul>
-        <button type="submit">Checkout</button>
+        <Button type="submit">Checkout</Button>
       </div>
     </aside>
   );

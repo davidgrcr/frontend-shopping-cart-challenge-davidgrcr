@@ -326,15 +326,6 @@ input {
   padding: 40px 32px 40px 56px;
 }
 
-.products button.count {
-  padding: 0 8px;
-  height: 40px;
-  border: none;
-  background: transparent;
-  color: #7350ff;
-  font-weight: bold;
-  cursor: pointer;
-}
 
 .products {
   flex: 1;
@@ -473,18 +464,4 @@ input {
 
 .summary-total-price {
   font-weight: bold;
-}
-
-.summary button[type="submit"] {
-  margin-top: 24px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  width: 100%;
-  border-radius: 4px;
-  background: #7350ff;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 14px;
-  cursor: pointer;
 }
