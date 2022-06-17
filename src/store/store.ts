@@ -1,5 +1,6 @@
 import create, { SetState, GetState } from "zustand";
 import Checkout from "../domain/Checkout";
+import Item, { Product } from "../domain/item";
 import Promotion, {PromotionHalfPrice} from "../domain/Promotion";
 
 let promotion = [];
@@ -8,17 +9,17 @@ promotion.push(new Promotion("TSHIRT", "x3 Shirt offer", 5, 3));
 
 const co = new Checkout(promotion);
 
-type CHeckoutStore = {
+type CheckoutStore = {
   checkout: Checkout;
   increment: (code: string) => void;
   decrement: (code: string) => void;
   scan: (code: string) => void;
   numberOfItems: number;
   priceTotalProducts: number;
-  updateData: () => void;
+  updateData: () => void;  
 };
 
-const useCHeckoutStore = create<CHeckoutStore>((set: SetState<CHeckoutStore>, get: GetState<CHeckoutStore>) => ({
+const useCheckoutStore = create<CheckoutStore>((set: SetState<CheckoutStore>, get: GetState<CheckoutStore>) => ({
   checkout: co,
   numberOfItems: 0,
   priceTotalProducts: 0,
@@ -43,4 +44,4 @@ const useCHeckoutStore = create<CHeckoutStore>((set: SetState<CHeckoutStore>, ge
   },
 }));
 
-export default useCHeckoutStore;
+export default useCheckoutStore;

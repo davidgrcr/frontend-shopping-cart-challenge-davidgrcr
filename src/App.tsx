@@ -1,13 +1,13 @@
 import "./App.css";
-import useCHeckoutStore from "./store/store";
+import useCheckoutStore from "./store/store";
 import CheckoutLayout from "./components/layout/CheckoutLayout";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import ProductDetail from "./components/layout/ProductDetail";
 
 function App() {
   /* Inicialize the application */
-  const checkout = useCHeckoutStore((state) => state.checkout);
-  const scan = useCHeckoutStore((state) => state.scan);
+  const checkout = useCheckoutStore((state) => state.checkout);
+  const scan = useCheckoutStore((state) => state.scan);
 
   scan("TSHIRT");
   scan("CAP");

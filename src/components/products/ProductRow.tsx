@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import Item from "../../domain/item";
-import useCHeckoutStore from "../../store/store";
+import useCheckoutStore from "../../store/store";
 import QuantityModifier from "../ui/QuantityModifier";
 
 function ProductRow(props: { product: Item }) {
   const { name = "", unitPrice = 0, price = 0, reference = "", image = "", quantity = 0 } = props.product;
-  const increment = useCHeckoutStore((state) => state.increment);
-  const decrement = useCHeckoutStore((state) => state.decrement);
-  const numberOfItems = useCHeckoutStore((state) => state.numberOfItems);
+  const increment = useCheckoutStore((state) => state.increment);
+  const decrement = useCheckoutStore((state) => state.decrement);
+  useCheckoutStore((state) => state.numberOfItems);
 
   const handleOnIncrement = (code: string) => () => {
     increment(code);
@@ -33,6 +33,7 @@ function ProductRow(props: { product: Item }) {
       <QuantityModifier
         onDecrement={handleOnDecrement(props.product.code)}
         onIncrement={handleOnIncrement(props.product.code)}
+        onChange={() => {}}
         quantity={quantity}
       />
       <div className="col-price">
