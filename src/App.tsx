@@ -1,7 +1,8 @@
-import ProductsLayout from "./components/layout/ProductsLayout";
 import "./App.css";
 import useCHeckoutStore from "./store/store";
-import Summary from "./components/layout/Summary";
+import CheckoutLayout from "./components/layout/CheckoutLayout";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import ProductDetail from "./components/layout/ProductDetail";
 
 function App() {
   /* Inicialize the application */
@@ -19,15 +20,18 @@ function App() {
   scan("CAP");
   scan("CAP");
   scan("CAP");
-  
+
   /* Inicialize the application */
 
-  const products = checkout.getProducts();
 
   return (
     <main className="App">
-      <ProductsLayout products={products} />
-      <Summary products={products} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<CheckoutLayout checkout={checkout} />} />
+          <Route path="/:code" element={<ProductDetail/>}/>
+        </Routes>
+      </BrowserRouter>
     </main>
   );
 }

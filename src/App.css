@@ -111,6 +111,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1;
+  --color-paragraph: #1a1a38;
+  --color-paragraph-code: #62628A;
 }
 
 ol,

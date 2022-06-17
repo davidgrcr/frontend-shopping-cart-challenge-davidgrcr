@@ -106,7 +106,7 @@ const BBDD: Product[] = [
     price: 20,
     code: "TSHIRT",
     reference: "X7R2OPX",
-    image: "/assets/shirt.png",
+    image: "/assets/tshirt.png",
   },
   {
     name: "Mug",

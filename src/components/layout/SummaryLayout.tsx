@@ -2,11 +2,10 @@ import Item from "../../domain/item";
 import useCHeckoutStore from "../../store/store";
 import Button from "../ui/Button";
 
-export default function Summary(props: { products: Item[] }) {
+export default function SummaryLayout(props: { products: Item[] }) {
+
   const numberOfItems = useCHeckoutStore((state) => state.numberOfItems);
-
   const priceTotalProducts = useCHeckoutStore((state) => state.priceTotalProducts);
-
   const checkout = useCHeckoutStore((state) => state.checkout);
 
   return (

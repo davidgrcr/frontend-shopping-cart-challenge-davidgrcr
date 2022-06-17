@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Item from "../../domain/item";
 import useCHeckoutStore from "../../store/store";
 import QuantityModifier from "../ui/QuantityModifier";
@@ -19,6 +20,7 @@ function ProductRow(props: { product: Item }) {
   return (
     <li className="product row">
       <div className="col-product">
+        <Link to={props.product.code}>
         <figure className="product-image">
           <img src={image} alt={name} />
           <div className="product-description">
@@ -26,6 +28,7 @@ function ProductRow(props: { product: Item }) {
             <p className="product-code">{`Product code ${reference}`}</p>
           </div>
         </figure>
+        </Link>
       </div>
       <QuantityModifier
         onDecrement={handleOnDecrement(props.product.code)}
