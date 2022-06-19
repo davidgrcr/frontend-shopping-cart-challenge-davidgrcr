@@ -1,6 +1,5 @@
 import create, { SetState, GetState } from "zustand";
 import Checkout from "../domain/Checkout";
-import Item, { Product } from "../domain/item";
 import Promotion, {PromotionHalfPrice} from "../domain/Promotion";
 
 let promotion = [];
