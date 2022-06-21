@@ -28,11 +28,9 @@ class Checkout implements CheckoutI {
 
   total(): number {
     let adjusment = 0;
-    this.promotions?.forEach((product: Promotion) => {
+    this.products?.forEach((product: Item) => {
       let promotion = this.hasPromotion(product.code);
-      if (promotion) {
-        adjusment += promotion.adjustment;
-      }
+      if (promotion) adjusment += promotion.adjustment;
     });
 
     return this.priceTotalProducts() - adjusment;
@@ -96,7 +94,6 @@ class Checkout implements CheckoutI {
     return this.products.reduce((acc, product) => acc + product.price, 0);
   }
 }
-
 
 // Data From BBDD:
 
