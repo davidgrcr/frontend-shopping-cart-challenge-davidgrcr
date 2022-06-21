@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
 import useCheckoutStore from "../../store/store";
-import Button from "../ui/Button";
-import Icon from "../ui/Icon";
-import IconClose from "../ui/IconClose";
+import Button from "../ui/Button/Button";
+import Icon from "../ui/Icons/Icon";
+import IconClose from "../ui/Icons/IconClose";
 import classes from "./ProductDetail.module.css";
 
 export default function ProductDetail() {
