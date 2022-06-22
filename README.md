@@ -4,9 +4,11 @@
 ### Built With
 
 * [React.js](https://reactjs.org/)
+* [TypeScript](https://www.typescriptlang.org/)
 * [Vite](https://vitejs.dev/)
 * [zustand](https://zustand.surge.sh/)
-* [Jest](https://jestjs.io/)
+* [vitest](https://vitest.dev/)
+* [Testing Library](https://testing-library.com/)
 
 
 <!-- GETTING STARTED -->
