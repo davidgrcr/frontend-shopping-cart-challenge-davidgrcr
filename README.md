@@ -14,12 +14,14 @@ As you already know, besides providing exceptional transportation services, Cabi
 
 Current stock consists of the following products:
 
+
+```
 Code         | Name                |  Price
 -------------------------------------------------
 TSHIRT       | Cabify T-Shirt      |  20.00€
 MUG          | Cabify Coffee Mug   |   5.00€
 CAP          | Cabify Cap          |  10.00€
-
+```
 
 We allow the users the possibility of having some discounts applied when combining the products in the following ways:
 
