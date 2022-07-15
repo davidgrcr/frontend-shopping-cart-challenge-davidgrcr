@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Item from "../../domain/item";
 import useCheckoutStore from "../../store/store";
-import QuantityModifier from "../ui/QuantityModifier";
+import QuantityModifier from "./../ui/QuantityModifier/QuantityModifier";
 
 function ProductRow(props: { product: Item }) {
   const { name = "", unitPrice = 0, price = 0, reference = "", image = "", quantity = 0 } = props.product;

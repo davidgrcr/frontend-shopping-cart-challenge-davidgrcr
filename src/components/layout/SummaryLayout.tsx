@@ -1,6 +1,6 @@
 import Item from "../../domain/item";
 import useCheckoutStore from "../../store/store";
-import Button from "../ui/Button";
+import Button from "../ui/Button/Button";
 
 export default function SummaryLayout(props: { products: Item[] }) {
 
