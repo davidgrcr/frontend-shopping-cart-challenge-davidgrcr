@@ -1,5 +1,11 @@
 # Frontend shopping cart challenge
 
+### Prerequisite
+
+```
+Vite requires Node.js version >=14.18.0. 
+However, some templates require a higher Node.js version to work, please upgrade if your package manager warns about it.
+```
 
 ### Built With
 
