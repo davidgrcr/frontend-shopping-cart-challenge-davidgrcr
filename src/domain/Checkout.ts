@@ -2,6 +2,10 @@ import { Checkout as CheckoutI } from "./checkoutI";
 import Item, { Product } from "./item";
 import Promotion from "./Promotion";
 
+/**
+ * The checkout class.
+ * implements the CheckoutI interface.
+ */
 class Checkout implements CheckoutI {
   private products: Item[] = [];
   private promotions?: Promotion[] = [];
@@ -26,6 +30,10 @@ class Checkout implements CheckoutI {
     return this;
   }
 
+  /**
+   * Returns the value of all cart products with the discounts applied.
+   * @returns the total value of the cart
+   */
   total(): number {
     let adjusment = 0;
     this.products?.forEach((product: Item) => {
@@ -36,12 +44,21 @@ class Checkout implements CheckoutI {
     return this.priceTotalProducts() - adjusment;
   }
 
+  /**
+   * Returns true if the product has a promotion.
+   * @param code
+   * @returns boolean
+   */
   hasPromotion(code: string): Promotion | undefined {
     return (this.promotions || []).find((promotion) => promotion.code === code);
   }
 
+  /**
+   *update promotions
+   * @param item
+   * @returns void
+   */
   updatePromotion(item: Item): void {
-    //update promotions
     let promotion = this.hasPromotion(item.code);
     if (promotion) {
       promotion.updatePromotion(item);
@@ -52,10 +69,20 @@ class Checkout implements CheckoutI {
     return this.promotions || [];
   }
 
+  /**
+   * Checks if the product is in the cart.
+   * @param code the product code
+   * @returns item if it is in the cart, undefined otherwise
+   */
   checkProducts(code: string): Item | undefined {
     return this.products.find((product: Item) => product.code === code);
   }
 
+  /**
+   * find the product in the 'database'
+   * @param code the product code
+   * @returns
+   */
   findProductBBDD(code: string): Product | any {
     return BBDD.find((product: Product) => product.code === code);
   }

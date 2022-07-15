@@ -8,6 +8,9 @@ promotion.push(new Promotion("TSHIRT", "x3 Shirt offer", 5, 3));
 
 const co = new Checkout(promotion);
 
+/** 
+ * @returns object with the states
+ */
 type CheckoutStore = {
   checkout: Checkout;
   increment: (code: string) => void;

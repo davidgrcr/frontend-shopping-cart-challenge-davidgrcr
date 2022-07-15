@@ -1,5 +1,8 @@
 import Item from "./item";
 
+/**  
+ * Structure of the promotion.
+ */
 export default class Promotion {
   code: string;
   description: string;
@@ -14,6 +17,10 @@ export default class Promotion {
     this.adjustment = 0;
   }
 
+  /**
+   * Updates the promotion with the new quantity of the product.
+   * @param item 
+   */
   updatePromotion(item: Item): void {
     if (this.numberOfItems <= item.quantity) {
       this.adjustment = (this.discount / 100) * item.price;
@@ -23,6 +30,9 @@ export default class Promotion {
   }
 }
 
+/**
+ * Promotion for the number of items.
+ */
 export class PromotionHalfPrice extends Promotion {
   constructor(code: string, description: string, discount: number, numberOfItems: number) {
     super(code, description, discount, numberOfItems);
