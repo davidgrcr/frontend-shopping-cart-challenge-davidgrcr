@@ -23,13 +23,12 @@ function App() {
 
   /* Inicialize the application */
 
-
   return (
     <main className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<CheckoutLayout checkout={checkout} />} />
-          <Route path="/:code" element={<ProductDetail/>}/>
+          <Route path="/:code" element={<ProductDetail checkout={checkout} />} />
         </Routes>
       </BrowserRouter>
     </main>

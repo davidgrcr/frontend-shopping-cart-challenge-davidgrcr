@@ -1,13 +1,14 @@
 import { useLocation } from "react-router-dom";
-import useCheckoutStore from "../../store/store";
+import Checkout from "../../domain/Checkout";
 import Button from "../ui/Button/Button";
 import Icon from "../ui/Icons/Icon";
 import IconClose from "../ui/Icons/IconClose";
 import classes from "./ProductDetail.module.css";
 
-export default function ProductDetail() {
+export default function ProductDetail(props: { checkout: Checkout }) {
   let { pathname = "" } = useLocation();
-  const checkout = useCheckoutStore((state) => state.checkout);
+  const { checkout } = props;
+
   const product = checkout.findProductBBDD(pathname.replace("/", ""));
 
   const handleOnIncrement = (code: string) => () => {
